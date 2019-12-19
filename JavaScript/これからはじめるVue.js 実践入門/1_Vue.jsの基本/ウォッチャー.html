@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Vue.js</title>
+</head>
+<body>  
+    <div id="app">
+        <!--入力値をnameプロパティにバインド-->
+        <label>名前：
+            <input type="text" v-model="name" />
+        </label>
+        <p>遅延変換:{{upperName}}</p>
+        <p>即時変換:{{upperOfName}}</p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <!--Linq的なメソッドとか便利な関数を追加してくれるライブラリ覚えておこう-->
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.11/lodash.min.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                name: '',
+                upperName: '',
+            },
+            //遅延処理用のdelayFuncメソッドを準備
+            created: function(){
+                this.delayFunc = _.debounce(this.getUpper, 500);
+            },
+            //nameプロパティが変化したときにdelayFUncメソッドを呼び出し
+            watch:{
+                name: function(newValue, oldValue){
+                    this.delayFunc();
+                }
+            },
+            computed:{
+                upperOfName: function(){
+                    return this.name.toUpperCase();
+                }
+            },
+            methods:{
+                getUpper: function(){
+                    this.upperName = this.name.toUpperCase();
+                }
+            }
+        })
+    </script>
+</body>
+</html>
