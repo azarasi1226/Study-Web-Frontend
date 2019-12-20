@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Vue.js</title>
+</head>
+<body>
+    <div id="app">
+        <form>
+            <label for="mail">メールアドレス</lael>
+            <textarea id="mail" v-on:input="oninput">{{mailFormat}}</textarea>
+        </form>
+        <ul>
+            <li v-for="mail in mails">
+                {{mail}}
+            </li>
+        </ul>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <script>    
+        new Vue({
+            el: '#app',
+            data: {
+                mails:[]
+            },
+            computed: {
+                mailFormat: function(){
+                    return this.mails.join('');
+                }
+            },
+            methods: {
+                oninput: function(e){
+                    let input = e.target.value.slice(-1);
+
+                    if(!input.match(/\w/)){
+                        return;
+                    }
+                    
+                    this.mails = e.target.value.split(';');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
