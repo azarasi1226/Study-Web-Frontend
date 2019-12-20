@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charaset="UTF-8"/>
+    <title>JavaScript本格入門</title>
+</head>
+<body>
+    <h1>JSON</h1>
+    <script>
+        console.log("Jsonに変換")
+        var obj = {
+            naem: "安藤和樹",
+            age: 12,
+            alive: true,
+        };
+
+        console.log("JSON文字列:" + JSON.stringify(obj));
+
+        var Jstr = '{"name": "安藤和樹", "age":23, "alie": true}';
+
+        console.log(JSON.parse(Jstr));
+    </script>
+</body>
+</html>

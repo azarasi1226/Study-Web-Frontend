@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charaset="UTF-8"/>
+    <title>JavaScript本格入門</title>
+</head>
+<body>
+    <h1>制御構文</h1>
+    <P id="text"></P>
+    <p id="html"></p>
+    <script>
+        "use strict";
+        let data1 = [1,2,3,4,5,6,7,8,9,10];
+        let data2 = {
+            name: "田中",
+            age : 23,
+            alive: true
+        }
+        //for in
+        //forin命令はプロパティの名前をstring型で列挙してるだけっぽい
+        //配列の添字も全部stringになってた。
+        console.log("For-in");  
+
+        for(var key in data2){
+            console.log(`${key}:type= ${typeof key}`);
+        }
+
+        for(var key in data1){
+            console.log(`${key}:type= ${typeof key}`);
+        }
+        console.log(new Array(16));
+        console.log(data1["1f"] + data1["3"]);
+
+
+        //for of
+        console.log("\n\nfor-of");
+        for(let value in data1){
+            console.log(value);
+        }
+        document.getElementById("html").innerHTML = "<p>ohayo</p>"
+        document.getElementById("text").textContent = "<p>ohayo</p>"
+    </script>
+</body>
+</html>

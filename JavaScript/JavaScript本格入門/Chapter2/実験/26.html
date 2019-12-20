@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charaset="UTF-8"/>
+    <title>JavaScript本格入門</title>
+</head>
+<body>
+    <form>
+        <label for="food">一番好きな食べ物は？：</label>
+        <select id="food">
+            <option value="ラーメン">ラーメン</option>
+            <!--コメント-->
+            <option value="餃子">餃子</option><option>a</option>
+            <option value="焼き肉">焼き肉</option>
+        </select>
+    </form>
+    <script>
+        let s = document.getElementById('food');
+        let opts = s.childNodes;
+
+        opts.forEach((n) =>{
+            console.dir(n.childNodes[0]);
+            console.dir(n.nodeType)
+        });
+        
+        s.addEventListener('click', function(e){
+            console.log('foo')
+            e.stopImmediatePropagation();
+        });
+        s.addEventListener('click', function(e){
+            console.log('fooa')
+        });
+        s.addEventListener('click', function(e){
+            console.log('fooaa')
+        });
+        s.addEventListener('click', function(e){
+            console.log('fooaaa')
+        });
+        s.addEventListener('click', function(e){
+            console.log('fooaaa')
+        });
+        
+
+        document.addEventListener('click', function(){
+            console.log(event.target);
+        });
+    </script>
+</body>
+</html>

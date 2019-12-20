@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Vue.js</title>
+</head>
+<body>
+    <div id="app">
+        <!--Mustache構文を使わなくてもTextContentは変更可能(中身全置き換えになるけどね)-->
+        <p v-text="message">置き換えられちゃう..</p>
+        
+        <!--Mustache構文を無効化-->
+        <p v-pre>{{message}}</p>
+
+        <!--属性値の操作
+            @v-bindはよく使うディレクティブだから省略記法もあるよ-->
+        <a v-bind:href="wingsURL">WINGSプロジェクト</a><br>
+        <a :href="amazonURL">Amazon</a><br>
+
+        <!--
+            checked, selected, disabledなんかの論理属性は
+            falsyな値で制御できるよ。null, undefined, trueとかね
+        -->
+        <input type="button" value="クリック" v-bind:disabled="buttonFlag"/>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <script>
+        let app = new Vue({
+            el: '#app',
+            data: {
+                message: '皆さん、こんにちは！',
+                wingsURL: 'https://wings.msn.to/',
+                amazonURL: 'http://amazon.com',
+                buttonFlag: true,
+             }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charaset="UTF-8"/>
+    <title>JavaScript本格入門</title>
+</head>
+<body>
+    <h1>ドキュメント</h1>
+
+    <div id="hoge"></div>
+    <script>
+        function houzi(){
+            console.log(1);
+        }
+
+        let nav = navigator.mimeTypes;
+
+        for(let i=0 ; i<nav.length ; i++){
+            console.log(nav[i]);
+        }
+
+        //hogeノードに子ノード追加
+
+        let elem = document.getElementById("hoge");
+        let elemChild = document.createElement("Andoukun");
+
+        elem.appendChild(elemChild);
+    </script>
+</body>
+</html>

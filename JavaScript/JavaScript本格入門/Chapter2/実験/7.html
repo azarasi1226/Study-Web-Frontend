@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charaset="UTF-8"/>
+    <title>JavaScript本格入門</title>
+</head>
+<body>
+    <h1>集合系オブジェクト</h1>
+    <script>
+        //オブジェクトのプロパティがかぶったとき
+        //一番最後に定義したオブジェクトで初期化される。(重複は認めないけど、エラーにならない)
+        let object = {name: "安藤", name: "田中", name: "小林"};
+        console.log("a".inde);
+    
+        //配列
+        let hairetu1 = [1, 2, 3, 4 , 6, 7, 9];
+
+        let hairetu2 = [{name: "安藤"}, {name: "和樹"}, {name: "Foooo"}];
+
+        hairetu1.forEach((num,i, a)=>{
+            //内部的にはおそらく数値型の変数が毎回作成されているから呼び出し元が変わらないと推測
+            
+            num = num*3;
+        });
+
+
+        hairetu2.forEach((value) =>{
+            value.name = "佐藤";
+        });
+        console.log(hairetu1);
+        console.log(hairetu2);
+        
+    </script>
+</body>
+</html>

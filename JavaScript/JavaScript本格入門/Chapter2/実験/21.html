@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charaset="UTF-8"/>
+    <title>JavaScript本格入門</title>
+</head>
+<body>
+    <h1>DOM操作</h1>
+    <h2>DocumentFragmentによる高速化</h2>
+
+    <ul id="list"></ul>
+    <script>
+        let books = [
+            {title: '独習PHP', price: 3200},
+            {title: '独習C#', price: 2360},
+            {title: '入門HTML', price: 3238}
+        ]
+
+
+        let list = document.getElementById('list');
+
+        //booksを元に<li>要素を追加する(DOMの描画更新が頻繁に発生し低速)
+        books.forEach((book)=>{
+            let li   = document.createElement('li');
+            let text = document.createTextNode(`${book.title} : ${book.price}円`);
+            li.appendChild(text);
+            list.appendChild(li)
+        });
+
+        //高速バージョン
+        //エレメントをぶち込める仮の入れ物的なサムシング
+        let frag = document.createDocumentFragment();
+        books.forEach((book)=>{
+            let li   = document.createElement('li');
+            let text = document.createTextNode(`${book.title} : ${book.price}円`);
+            li.appendChild(text);
+            frag.appendChild(li)
+        });
+        list.appendChild(frag);
+        //大体二行増えるけど高速に動作する。appednChildにcreateDocumentFragオブジェクト入れると
+        //中身ぶっ壊れんじゃないこと思うけどきれいに整形されてる。
+
+    </script>   
+</body>
+</html>

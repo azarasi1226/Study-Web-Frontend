@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charaset="UTF-8"/>
+    <title>JavaScript本格入門</title>
+</head>
+<body>
+    <h1>演算子</h1>
+    <script>
+        console.log('1' == 1);
+        console.log('0x10' == 16);
+        console.log('1' === 1);
+        console.log('0x10' === 16);
+
+        //falsyな値
+        if(!null)console.log("null");
+        if(!0)console.log(0);
+        if(!"")console.log("空文字");
+        if(!NaN)console.log(NaN);
+
+        //delete
+        console.log("デリート演算子");
+        let any = ["java", "C#", "JavaScript", "PHP"];
+        console.log(any);
+
+        delete any[2];
+        console.log(any);
+        console.log(any.length);
+
+        any.forEach((a)=>{
+            console.log(a);
+        });
+
+        //typeof
+        console.log("\n\njtypeof演算子");
+        console.log(typeof new String());
+        console.log(typeof 1);
+        console.log(typeof "");
+        console.log(typeof []);
+        console.log(typeof {});
+        console.log(typeof function(){});
+        hantei("aa");
+        hantei(1);
+        hantei(undefined);
+
+
+        function hantei(num){
+            if(typeof num == "number"){
+                console.log("数字の処理");
+            }
+            else if(typeof num == "string"){
+                console.log("文字列の処理");
+            }
+            else{
+                console.log("sonota");
+            }
+
+            if(1){
+                console.log(a = 3);
+            }
+        }
+    </script>
+</body>
+</html>

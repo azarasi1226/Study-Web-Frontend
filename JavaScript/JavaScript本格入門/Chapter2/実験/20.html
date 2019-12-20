@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charaset="UTF-8"/>
+    <title>JavaScript本格入門</title>
+</head>
+<body>
+    <h1>DOM操作</h1>
+    <h2>ノードの追加・置換・削除</h2>
+
+    <from>
+        <div>
+            <label for="name">サイト名：</label><br/>
+            <input id="name" name="name" type="text" size="30"/>
+        </div>
+        <div>
+            <label for="url">URL:</label><br/>
+            <input id="url" name="url" type="url" size="30"/>
+        </div>
+        <div>
+            <input id="btn" type="button" value="追加"/>
+        </div>
+    </from>
+
+    <div id="list"></div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            //追加ボタン押下
+            document.getElementById('btn').addEventListener('click', () => {
+                //テキストボックスの値を取得
+                let name = document.getElementById('name');
+                let url  = document.getElementById('url');
+
+                //<a>要素作成
+                let ancher = document.createElement('a');
+                let a_href = document.createAttribute('href');
+                let text = document.createTextNode(name.value);
+                a_href.value= url.value;
+                ancher.appendChild(text);
+                ancher.setAttributeNode(a_href);
+                //ancher.setAttribute('href', url.value);でもできるよこっちのほうが簡単だね
+
+                //<br>要素作成
+                let br = document.createElement('br');
+                
+                //ノード追加
+                let list = document.getElementById('list');
+                list.appendChild(ancher);
+                list.appendChild(br);
+            }, false)
+        }, false)
+    </script>   
+</body>
+</html>

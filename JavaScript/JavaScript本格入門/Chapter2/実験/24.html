@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charaset="UTF-8"/>
+    <title>JavaScript本格入門</title>
+</head>
+<body>
+    <h1>グローバル変数の範囲</h1>
+    <h2>どこまで巻き上がってるのかｓ</h2>
+
+    <script>
+        var grobal = "グローbru"
+        function foo(g){
+            console.log("fooが呼ばれたよ");
+            console.log(g);
+        }
+    </script>
+    <script>
+        foo(grobal);
+    </script>
+</body>
+</html>

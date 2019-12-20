@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charaset="UTF-8"/>
+    <title>JavaScript本格入門</title>
+</head>
+<body>
+    <ha>クラス関係</ha>
+    <script>
+        //静的プロパティを保持したクラス
+        let Area = function(){};
+
+        //静的プロパティ
+        Area.version = '1';
+
+        Area.triangle = ({base, height}) => {
+            return base * height / 2;
+        }
+
+        Area.diamond = ({width, height}) => {
+            return width * height / 2;
+        }
+
+        let ins = new Area();
+
+        console.log(ins);
+        console.log(Area.triangle({base:10, height:20}));
+        ;
+    </script>   
+</body>
+</html>

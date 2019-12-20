@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Vue.js</title>
+</head>
+<body>
+    <div id="app">
+        <!--
+            Vue.jsのdataオプションに登録されたデータをVUe.jsの世界ではリアクティブデータと呼ぶ
+            リアクティブデータの変更を検知して画面に反映させる仕組みをリアクティブシステム
+            と呼ぶ。
+        -->
+        <p>現在時刻</p>
+        <p>{{hiduke}}</p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el:'#app',
+            data: {
+                currentTime: new Date()
+            },
+            //起動時にタイマーを設定
+            created: function(){
+                this.timer = setInterval(() => {
+                    this.currentTime = new Date();
+                }, 500)
+            },
+            //タイマーを削除
+            beforeDestory: function(){
+                clearInterval(this.timer);
+            },
+            //見やすく整形
+            computed:{
+                hiduke: function(){
+                    return this.currentTime.toLocaleString();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

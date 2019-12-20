@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charaset="UTF-8"/>
+    <title>JavaScript本格入門</title>
+</head>
+<body>
+    <ha>クラス関係2</ha>
+    <script>
+       //継承は自由に切り替えられるけど、インスタンス化した時点のスーパークラスの情報で固定される。
+
+        let Animal = function(){
+            this.aa = 1;
+        };
+        Animal.prototype = {
+            work: ()=>{
+                console.log('とことこ');
+            }
+        }
+
+        let SuperAnimal = function(){};
+        SuperAnimal.prototype = {
+            work: ()=>{
+                console.log('ずしんずしん');
+            }
+        }
+
+        let Dog = function(){};
+        
+        Dog.prototype = new Animal();
+        let d1 = new Dog();
+        d1.work();
+
+
+        Dog.prototype = new SuperAnimal();
+        let d2 = new Dog();
+        d1.work();
+        d2.work();
+
+        console.log(d1);
+        console.log(d2);
+
+        console.log( 'name' in {name: "aa"});
+
+        console.log(new Object());
+    </script>   
+</body>
+</html>

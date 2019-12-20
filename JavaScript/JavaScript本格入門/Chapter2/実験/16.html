@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charaset="UTF-8"/>
+    <title>JavaScript本格入門</title>
+</head>
+<body>
+    <ha>クロージャ</ha>
+    <script>
+        function closure(init){
+            let conuter = init;
+
+            return ()=>{
+                return conuter++;
+            }
+        }
+
+        let cnt = closure(3);
+
+        for(i=0 ; i<1000 ; i++){
+            console.log(cnt());
+        }
+
+        //prototypeが保持するタイミング
+
+        var Member = function(){};
+
+        Member.prototype.sex = "男";
+        var mem1 = new Member();
+        var mem2 = new Member();
+
+        console.log(mem1.sex + '|' + mem2.sex);
+        mem2.sex = "女"
+        //prototypeの値が保持されるのはnewしたとき？共有されてない
+        //prototypeに設定したんじゃなくて、個別のインスタンスにprototypeと同名のプロパティを作っただけっぽい
+
+        console.log(mem1.sex + '|' + mem2.sex);
+
+        console.log(mem1);
+        console.log(mem2);
+
+        delete mem2.sex;
+        console.log(mem2);
+
+        //prototypeの項目をインスタンスから消せない臭い
+        delete mem2.sex;
+        console.log(mem2);
+
+        //おおもとのオブジェクトからなら消せる
+        delete Member.prototype.sex;
+        console.log(mem1);
+
+    </script>   
+</body>
+</html>

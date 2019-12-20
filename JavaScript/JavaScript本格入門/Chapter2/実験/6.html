@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charaset="UTF-8"/>
+    <title>JavaScript本格入門</title>
+</head>
+<body>
+    <h1>Number</h1>
+    <p id="show"></p>
+    <script>
+        //定義値
+        console.log(Number.MAX_VALUE);
+        console.log(Number.MAX_SAFE_INTEGER);
+        console.log(Number.MIN_VALUE);
+        console.log(Number.MIN_SAFE_INTEGER);
+        console.log(1.0);
+        //numberオブジェクト
+        console.log(Number.parseFloat("1"));
+        //グローバルオブジェクト
+        console.log(parseFloat("11"));
+        console.log(Number.parseInt("23.5"));
+
+        //数値→文字列
+        //専用のメソッド toStringとかpaseFloatとかあるけどどっちがええんやろうか？
+        console.log("\n\n\n\数値から文字列");
+        console.log(1345+'');
+        console.log("文字列から数値に変換")
+        console.log("3434343" - 0);
+    </script>
+</body>
+</html>

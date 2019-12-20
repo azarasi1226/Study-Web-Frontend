@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Vue.js</title>
+</head>
+<body>
+    <div id="app"> 
+        <!--マスタッシュ構文の中に式かけるけど毎回書いてくのだるくね？-->
+        <p>{{email.split('@')[0].toUpperCase()}}</p>
+        <!--算出プロパティ
+            ※基本的に値はキャッシュされる。つまりプロパティの変更によって初めて
+            画面上の値が更新される
+        -->
+        <p>{{localEmail}}</p>
+        <!--メソッド(同じ名前は併用できない臭い)
+            ※画面の描画がある毎に呼び出される（無駄無駄無駄）
+            オーバーヘッドが算出プロパティよりも高いので算出プロパティ使おうねって話。
+        -->
+        <p>{{mlocalEmail()}}</p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                email: 'andou@gmail.com'
+            },
+            //算出プロパティ
+            computed: {
+                localEmail: function(){
+                    return this.email.split('@')[0].toUpperCase();
+                }
+            },
+            //Vue.jsが管理するメソッド
+            methods: {
+                mlocalEmail: function(){
+                    return this.email.split('@')[0].toUpperCase();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

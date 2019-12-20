@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Vue.js</title>
+</head>
+<body>
+    <div id="app">
+        <p>コンソール見て</p>
+        <p>{{name}}</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script> 
+    <script>
+        let vue = new Vue({
+            el: '#app',
+            data:{
+              name: 'anndou'
+            },
+            /*
+                vue.jsにはライフサイクルフックという概念があり、
+                描画や更新の際に呼び出したい処理を定義することができる。
+            */
+            beforeCreate: function(){
+                console.log('beforeCreate');
+            },
+            created: function(){
+                console.log('created');  
+            },
+            beforeMount: function(){
+                console.log('beforeMount');
+            },
+            mouted: function(){
+                console.log('mounted');
+            },
+            beforeUpdate: function(){
+                console.log('beforeUpdate');
+            },
+            updated: function(){
+                console.log('updated');
+            },
+            beforeDestory: function(){
+                console.log('beforeDestory');
+            },
+            destroyed: function(){
+                console.log('destoryed');
+            }    
+        });
+        setTimeout(function(){
+            console.log('プロパティ変更');
+            vue.name = '田中';
+        }, 1000);
+
+        setTimeout(function(){
+            console.log('削除');
+            vue.$destroy();
+        }, 3000);
+    </script>
+
+</body>
+</html>

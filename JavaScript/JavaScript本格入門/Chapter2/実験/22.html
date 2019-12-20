@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charaset="UTF-8"/>
+    <title>JavaScript本格入門</title>
+</head>
+<body>
+    <h1>DOM操作</h1>
+    <h2>Style操作</h2>
+
+    <div id="elem">マウスホバー</div>
+    <script>
+        document.addEventListener('DOMContentLoaded', ()=>{
+            let elem = document.getElementById('elem');
+
+            elem.addEventListener('mouseover', function(){
+                this.style.backgroundColor = 'yellow'
+                console.log(this);
+            }, false);
+
+            elem.addEventListener('mouseout', function(){
+                console.log(this);
+                this.style.backgroundColor = '';
+            }, false);
+        }, false);
+    </script>   
+</body>
+</html>

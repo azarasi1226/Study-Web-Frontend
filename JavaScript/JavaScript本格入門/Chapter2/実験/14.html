@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charaset="UTF-8"/>
+    <title>JavaScript本格入門</title>
+    <script>"use strict";</script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+    <h1>関数</h1>
+    <script>
+        var Class = function(name){
+            this.name = name,
+            this.show =()=>{
+                console.log(this.name);
+            }
+        }
+
+
+        class Human{
+            constructor(name){
+                this.name = name;
+            }
+            show(){
+                console.log(this.name);
+            }
+        }
+
+        Class.show = ()=>{
+            console.log(this.name);
+        }
+
+
+        var takasi = new Class("たかし");
+        var tanaka = new Class("たなか");
+
+
+        console.log(takasi.show());
+        console.log(tanaka.show());
+
+
+        let human1 = new Human("たなか");
+        let human2 = new Human("アビス");
+
+        human1.show();
+        human2.show();
+
+    </script>
+</body>
+</html>

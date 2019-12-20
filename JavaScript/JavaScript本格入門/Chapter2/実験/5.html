@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charaset="UTF-8"/>
+    <title>JavaScript本格入門</title>
+</head>
+<body>
+    <h1>String</h1>
+    <p id="show"></p>
+    <script>
+        let name5 = "シールくんは最高\n".repeat(100);
+
+        document.getElementById("show").innerText = name5;
+        console.log(name5[2]);
+
+        //サロゲートペア
+        let msg = "叱る";
+        console.log(msg.length);
+    </script>
+</body>
+</html>

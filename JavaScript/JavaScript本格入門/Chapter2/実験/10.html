@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charaset="UTF-8"/>
+    <title>JavaScript本格入門</title>
+</head>
+<body>
+    <h1>イミュータブルオブジェクト</h1>
+    <script>
+        "use strict";
+
+        var pet = {
+            type: "スノーホワイトハムスター",
+            name: "きらちゃん"
+        };
+
+        //普遍化３種類
+        //Object.preventExtensions(pet);
+        //Object.seal(pet);
+        Object.freeze(pet);
+
+        // //変更
+        // pet.name = "たなかちゃん";
+
+        // //消去
+        // delete pet.type;
+
+        // //追加
+        // pet.age = 3;
+        // console.log(pet);
+
+        //組み込みオブジェクトって守られてんの？
+
+        let date = new Date();
+        date.AA=3;
+        console.log(Object.isExtensible(date));
+        console.log(Object.isFrozen(date));
+        console.log(Object.isSealed(date));
+
+        console.log(Object.keys(date));
+        console.log(Object.keys(pet));
+    </script>
+</body>
+</html>

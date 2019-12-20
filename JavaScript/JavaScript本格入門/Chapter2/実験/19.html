@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charaset="UTF-8"/>
+    <title>JavaScript本格入門</title>
+</head>
+<body>
+    <h1>プライベートメンバが定義されたいclass構文で作ったクラス</h1>
+    <script>
+        class Human{
+            constructor(){
+                let _name;
+                let _age;
+
+                //nameアクセッサ
+                this.getName = ()=>{
+                    return _name;
+                }
+                this.setName = (name)=>{
+                    _name = name;
+                }
+
+                //ageアクセッサ
+                this.getAge = ()=>{
+                    return _age;
+                }
+                this.setAge = (age)=>{
+                    _age = age;
+                }
+            }
+            getInfo(){
+                console.log(`名前は${this.getName()}年齢は${this.getAge()}です`);
+            }
+        }
+
+        let ando = new Human();
+        //アクセスできない
+        ando._name = "あんどう";
+        ando._age = 21;
+        ando.getInfo();
+
+        //アクセッサ経由
+        ando.setName("あんどう");
+        ando.setAge(21);
+        ando.getInfo();
+    </script>   
+</body>
+</html>

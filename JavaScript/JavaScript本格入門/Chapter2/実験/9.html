@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charaset="UTF-8"/>
+    <title>JavaScript本格入門</title>
+</head>
+<body>
+    <h1>オブジェクト</h1>
+    <script>
+        //オブジェクト定義
+        var obj = new Object();
+        var kar = Object.create(null);
+
+        obj.Name = "あんどう";
+
+        obj.toString = () => {
+            return "aaaaaaaaa";
+        }
+
+        console.log(obj.toString());
+        console.log(obj.valueOf());
+        console.log({}.toString());
+        console.log(Math.toString());
+        console.log(typeof 1);
+
+        console.log(kar);
+        console.log(kar.toString());
+    </script>
+</body>
+</html>
