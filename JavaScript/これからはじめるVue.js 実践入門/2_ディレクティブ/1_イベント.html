@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Vue.js</title>
+</head>
+<body>
+    <div id="app">
+        <!--
+            イベントをバインドする場合はv-on:イベント名
+            普通の指定ではonが接頭語に必要だけどaddEventListenerみたいな感じでonは不要
+        -->
+        <button v-on:click="onclick">ボタンです</button>
+        <p>{{count}}</p>
+
+        <!--
+            @イベント名で短縮もできるよ
+        -->
+        <button @click="onclick">押してや</button><br>
+
+        <!--
+            画像にマウスカーソル出したり入れたりして変える奴
+        -->
+        <img v-bind:src="path" alt ="ロゴ画像" style="width :100px"
+             v-on:mouseenter="onmouseenter"
+             v-on:mouseleave="onmouseleave"/><br/>
+
+        <!--
+            引数を指定して起動もできるし、イベントオブジェクトは$eventで
+            指定できるよ。
+        -->
+        <button v-on:click="show('安藤', $event)">名前出るよ</button>
+        <p>{{name}}</p>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                count: 0,
+                path: "https://konachan.com/jpeg/b20026a54dda81f38d7bd23e22546337/Konachan.com%20-%20296593%20animal_ears%20blue_eyes%20blue_hair%20bow%20bunny_ears%20bunnygirl%20dress%20food%20fruit%20inhoya2000%20loli%20long_hair%20navel%20original%20wristwear.jpg",
+                name: '無名ちゃん',
+            },
+            //イベントハンドラーはmethodsプロパティに追加していく感じになる
+            methods:{
+                onclick: function(e){
+                    this.count++;
+                },
+                onmouseenter: function(e){
+                    this.path = "https://konachan.com/sample/b286ee5c5a2e08b354b00e77ebbc06f8/Konachan.com%20-%20296594%20sample.jpg";
+                },
+                onmouseleave: function(e){
+                    this.path = "https://konachan.com/jpeg/b20026a54dda81f38d7bd23e22546337/Konachan.com%20-%20296593%20animal_ears%20blue_eyes%20blue_hair%20bow%20bunny_ears%20bunnygirl%20dress%20food%20fruit%20inhoya2000%20loli%20long_hair%20navel%20original%20wristwear.jpg";
+                },
+                show: function (name, e){
+                    this.name = name + e.type;
+                }
+            }
+        }); 
+    </script>
+</body>
+</html>
