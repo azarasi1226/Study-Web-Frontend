@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Vue.js</title>
+</head>
+<body>
+    <div id="app">
+        <form>
+            <!--
+                .numberオプションは文字列を数字に変換する
+                ※vue.jsの世界では双方向バインドの場合全部文字列型として処理されるので
+            -->
+            <label for="temperature">サウナ温度：</label>
+            <input type="text" id="temperature" v-model.number="temperature">
+            <p>{{fix}}</p>
+            <!--
+                .lazyでバインドのタイイングを遅延できる
+                ※texの初期イベントはinputだけどcheckdになる感じ
+            -->
+            <label for="name">氏名：</label>
+            <input type="text" id="name" v-model.lazy="name"/>
+            <p>{{name}}</p>
+            <!--この他にもtrimとかあるよ-->
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                temperature: 0,
+                name
+            },
+            computed: {
+                fix: function(){
+                    return typeof this.temperature; 
+                }
+            }
+        })
+    </script>
+</body>
+</html>

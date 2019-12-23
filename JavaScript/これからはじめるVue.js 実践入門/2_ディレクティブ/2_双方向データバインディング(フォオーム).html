@@ -6,10 +6,86 @@
 </head>
 <body>
     <div id="app">
+        <form>
+            <label for="name">氏名:</label>
+            <!--
+                v-modelにdataプロパティを名を指定することで双方向バインディングを行うことが可能
+                内部的にはv-text or value etc...とv-on:inputの組み合わせなんだけどね...
+                
+                テキストと複数行テキストはvalueとinputイベントを
+                チェックボックスとラジオおはcheckedとchangeイベントを
+                選択フィールドはvalueとchangeイベントを使用する
+            -->
+            <input type="text" id="name" v-model="myName"/>
+            <div>こんにちは、{{myName}}さん</div>
+            <br/>
+            <br/>
+            <!--ラジオ-->
+            <!--
+                Labelの関連する部品はid名でしている。
+                formで送信する要素の名前はname属性で指定する。完璧に忘れてた
+            -->
+            <label for="dog">いぬ</label>
+            <input type="radio" id="dog" value="いぬ" v-model="pet"/>
+            <br/>
+            <label for="cat">ねこ</label>
+            <input type="radio" id="cat" value="ねこ" v-model="pet"/>
+            <br/>
+            <label for="human">人間</label>
+            <input type="radio" id="human" value="人間" v-model="pet"/>
+            <br/>
+            <p>選択したペットは{{pet}}だね</p>
+
+            <!--チェックボックス-->
+            <label for="doui">同意する</label>
+            <input type="checkbox" id="doui" v-model="agree"/>
+            <p>{{agree}}</p>
+
+            <!--チェックボックス複数-->
+            <div>お使いのOSは？</div>
+            <label for="windows">Windows</label>
+            <input type="checkbox" id="windows" Value="Windows" v-model="os"/>
+            <br/>
+            <label for="mac">mac</label>
+            <input type="checkbox" id="mac" value="Mac" v-model="os"/>
+            <br/>
+            <label for="Linux">linux</label>
+            <input type="checkbox" id="linux" value="Linux" v-model="os"/>
+            <br/>
+            <p>{{os}}</p>
+
+            <!--オブジェクトもバインドできるよ！！！超便利
+            ※なぜかvalueがv-bind形式？？？なぜ？？？ハマった-->
+            <label for="million">百万</label>
+            <input type="radio" id="million" v-bind:value="{name: '百万', size: 10}" v-model="unit"/>
+            <br/>
+            <label for="billion">十億</label>
+            <input type="radio" id="billion" v-bind:value="{name: '十億', size: 1000}" v-model="unit"/>
+            <br/>
+            <label for="trillion">１兆</label>
+            <input type="radio" id="trillion" v-bind:value="{name: '一兆', size: 100000}" v-model="unit"/>
+            <br/>
+            <p>name={{unit.name}}, size={{unit.size}}</p>
+            </form>
+
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
     <script>
-    
+        new Vue({
+            el: "#app",
+            data: {
+                myName: "",
+                pet: "ねこ",
+                agree: true,
+                os: [],
+                unit: {}
+            },
+            methods: {
+                henkou: function(e){
+                    console.log(this.unit.name);
+                }
+            }
+        });
     </script>
 </body>
 </html>
