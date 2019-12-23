@@ -3,6 +3,12 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Vue.js</title>
+    <style>
+        [v-clock]{
+            display:none;
+        }
+    </style>
+
 </head>
 <body>
     <div id="app">
@@ -11,7 +17,7 @@
             普通の指定ではonが接頭語に必要だけどaddEventListenerみたいな感じでonは不要
         -->
         <button v-on:click="onclick">ボタンです</button>
-        <p>{{count}}</p>
+        <p v-clock>{{count}}</p>
 
         <!--
             @イベント名で短縮もできるよ
@@ -30,7 +36,7 @@
             指定できるよ。
         -->
         <button v-on:click="show('安藤', $event)">名前出るよ</button>
-        <p>{{name}}</p>
+        <p v-clock>{{name}}</p>
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>

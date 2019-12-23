@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Vue.js</title>
+    <link rel="stylesheet" 
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+</head>
+<body>
+    <div id="app">
+        <!--
+            vue.jsでMVCフレームワークが今までやってきたViewみたいなことができちゃう
+            あとはAjaxマスターになるだけやな
+        -->
+        <button v-on:click="addMember">追加</button>
+        <table class="table">
+            <th>名前</th><th>年齢</th><th>趣味</th>
+            <!--
+                もし、絞りたいなら専用のプロパティを用意する
+                あと、中間のキーワードにはinもofも使えるけどJS的にはofのほうがわかりやすいのかな？
+            -->
+            <!--(x,i)で囲えば、indexも取得できる※最後の変数がindexになる-->
+            <tr v-for="(x, i) of adult">
+                <td>{{i}}</td>
+                <td>{{x.name}}</td>
+                <td>{{x.age}}</td>
+                <td>{{x.hoby}}</td>
+            </tr>
+        </table>
+
+        <!--普通のfor文みたいな数値指定もできる超便利(もちろんNumber型で取り出せる)-->
+        <span v-for="i in 9">{{i}} </span>
+
+        <!--複数要素をまとめて出力したいときはtemplateで囲う-->
+        <template v-for="s in adult">
+            <p>{{s.name}}</p>
+            <p>{{s.age}}</p>
+        </template>
+
+        <!--
+            p107に書いてあるけど、大量のリスト形式のオブジェクトを描画してるときに
+            更新勝利をすると全部書き変わってパフォーマンス悪いから、v-bind:key属性に
+            主キーを付与しよう
+        -->
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                status: '全体表示',
+                moe: [
+                            {name: '安藤', age: 21, hoby: 'ゲーム'},
+                            {name: 'けいちゃん', age: 35, hoby: '合コン'},
+                            {name: 'みどりん', age: 24, hoby: 'ゲーム'},
+                            {name: 'みやさん', age: 33, hoby: '凧揚げ'},
+                            {name: 'あかつき', age: 24, hoby: 'カラオケ'},
+                            {name: 'お茶さん', age: 22, hoby: 'サバゲ'},
+                            {name: 'Nbenさん', age: 57, hoby: '釣り'},
+                        ]
+            },
+            computed: { 
+                //30歳以上を求める
+                adult: function(){
+                    return this.moe.filter(m => m.age >= 30);
+                },
+            },
+            methods: {
+                addMember: function(){
+                    this.moe.push({name: `補欠メンバ${this.moe.length}`, age: 9999, hoby: 'ゲーム'});
+                },
+            }
+        });
+    </script>
+</body>
+</html>

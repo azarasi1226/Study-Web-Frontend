@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Vue.js</title>
+</head>
+<body>
+    <div id="app">
+        <!--
+            v-bind="プロパティ名"で一気に属性を付け足すことが可能
+            styleとかだとcssでまとめてかけるけど属性はかけなかったので便利よねって話
+        -->
+        <input type ="text" v-bind="attrs">
+
+        <!--
+            要素オブジェクトのプロパティもアクセスできるよ
+        -->
+        <div v-bind:text-content.prop="text"></div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <script>    
+        new Vue({
+            el: '#app',
+            data: {
+                attrs: {
+                    size: 20,
+                    maxlength: 14,
+                    required: true
+                },
+                text: 'みなさんこんにちは',
+            }
+        });
+    </script>
+</body>
+</html>
