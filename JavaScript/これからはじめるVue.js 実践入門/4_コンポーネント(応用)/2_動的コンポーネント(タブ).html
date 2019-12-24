@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <t８８le>Vue.js</title>
+</head>
+<body>
+    <div id="app">
+        <!--タブを列挙-->
+        <ul>
+            <li v-for="tabName of tabNames">
+                <a href="#" v-on:click.prepend="onclick(tabName)">{{tabs[tabName]}}</a>
+            </li>
+        </ul>
+        <!--８８８
+            keep-aliveタグで囲うとキャッシュすることができる
+            maxとinclude属性でキャッシュするコンポーネントを制御できる
+        -->
+        <keep-alive>
+            <component v-bind:is="currentBanner" />
+        </keep-alive>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <script>
+        //3種類のコンポーネントを作成
+        Vue.component('banner-member',{
+            template:
+            `<div class="banner">
+                <h3>WINGSメンバー募集中！</h3>
+                <p>あなたもWingsプロジェクトに参加しませんか？<br />
+                現在、Wingsプロジェクトでは、ご一緒に仕事ができる仲間を募集中</p>
+                <label>名前：<input type="text" v-model="name" /></label>
+                <input type="submit" value="登録" />
+            </div>
+            `,
+            data: function(){
+                return {
+                    name: '緑亀宗一郎'
+                }
+            }
+        });
+        Vue.component('banner-new',{
+            template:
+            `<div class="banner">
+                <h3>新刊「HTML5超入門」発売</h3>
+                <p>ステップバイステップで学ぶ<br />
+                HTML5アプリの基礎知識、画面デザイン、コードの書き方など</p>
+            </div>
+            `
+        });
+        Vue.component('banner-env',{
+            template:
+            `<div class="banner">
+                <h3>Doccker環境構築</h3>
+                <p>簡単にドッカーで仮想環境を構築してしまいましょう<br />
+                ※Linuxの使い方を知っている人前提です。</p>
+            </div>
+            `
+        });
+
+        new Vue({
+            el: '#app',
+            data:{
+                current: "member",
+                tabs:{
+                    //メンバ名にnewが予約語として使えないので文字列としてプロパティを定義
+                    'member': 'メンバー募集',
+                    'new'   : '新刊紹介',
+                    'env'   : '環境構築設定'
+                }
+            },
+            computed:{
+                currentBanner: function(){
+                    return 'banner-' + this.current;
+                },
+                tabNames: function(){
+                  return Object.keys(this.tabs);
+                }
+            },
+            methods:{
+                //クリック時にタブを切り替える
+                onclick: function(tabName){
+                    this.current = tabName;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
