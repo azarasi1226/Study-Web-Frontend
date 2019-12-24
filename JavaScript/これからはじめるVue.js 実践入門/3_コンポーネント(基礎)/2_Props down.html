@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Vue.js</title>
+</head>
+<body>
+    <div id="app">
+        <!--コンポーネントの呼び出し
+        呼び出し側ではケバブケース法で呼び出す。-->
+        <my-hello your-name="鈴木"></my-hello>
+
+        <!--b-vind:形式で渡されると文字列以外も渡せる-->
+        <my-hello v-bind:your-name="1"></my-hello>
+        <!--v-bind:でかけるのはあくまでも式なので、文字列そのまま渡したかったら''で囲う-->
+        <my-hello v-bind:your-name="'鈴木'"></my-hello>
+
+        <!--プロパティ値の更新-->
+        <my-counter init="0"></my-counter>
+
+        <!--propsで定義されてないプロパティを設定するとルート要素に付け足されていく-->
+        <my-hello your-name="田中" class="tanaka" title="names"></my-hello>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <script>
+        Vue.component('my-hello', {
+            //外部からアクセスできるプロパティを定義
+            //※配列型で、ここで一気に必要なプロパティを定義する
+            props:['yourName'],
+            template: `<div>こんにちは、{{yourName}}さん！</div>`
+        });
+
+        Vue.component('my-counter', {
+            props:['init'],
+            template:
+            `<div>現在地は{{current}}です!
+                <input type="button" v-on:click="onclick" value="増やす"/>
+            </div>`,
+            data: function(){
+                return {
+                    current: this.init
+                };
+            },
+            methods: {
+                onclick: function(){
+                    this.current++;
+                }
+            }
+        });
+
+        new Vue({
+            el: '#app'
+        });
+    </script>
+</body>
+</html>

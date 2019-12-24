@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Vue.js</title>
+</head>
+<body>
+    <div id="app">
+        <!--propsのプロパティ値は親がいつでも変更できる-->
+        <my-counter v-bind:show-count="count"></my-counter>
+        <button v-on:click="count++">子コンポーネントの値を変更</button>
+
+        <!--わざと失敗させる-->
+        <my-type your-name="安藤和樹aaa"></my-type>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <script>
+        Vue.component('my-counter', {
+            props:['showCount'],
+            template: `<div>現在値はは{{ showCount }}です！</div>`
+        });
+
+        //検証ルールとか型の指定とかもできる
+        //でもルールに引っかかっててもデバッグで警告出るだけ。意味がない？
+        Vue.component('my-type',{
+            props:{
+                yourName:{
+                    type: String,
+                    required: true,
+                    //名前が５文字以内であれば成功
+                    validator: function(value){
+                        return value.length <= 5;
+                    }
+                }
+            },
+            template:`<div>名前は{{yourName}}です</div>`
+        });
+        new Vue({
+            el: '#app',
+            data: {
+                count: 0
+            }
+        })
+    </script>
+</body>
+</html>

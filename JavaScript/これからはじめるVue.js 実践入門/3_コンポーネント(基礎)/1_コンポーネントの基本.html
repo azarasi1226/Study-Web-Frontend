@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Vue.js</title>
+</head>
+<body>
+    <div id="app">
+        <my-hello></my-hello>
+        <my-hello2></my-hello2>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <script>
+        //コンポーネントを定義component staticメソッドで定義して
+        //Vueインスタンスを作るとコンポーネントが稼働する
+       
+        //コンポーネントの名前はケバブケース記法で書くのが一般的らしい
+        Vue.component('my-hello', {       
+            //※dataプロパティはメソッドで返すのが特殊(データオブジェクトを個別に管理するため)
+            //それ以外はelで範囲指定がないぐらいの差
+            data: function(){
+                return {
+                    name: '安藤和樹'
+                }
+            },
+
+            //テンプレートプロパティは単一のルート要素を持たなければならない
+            template: `<div>こんにちは{{name}}!</div>`,
+        });
+
+        new Vue({
+            el: '#app',
+
+            //コンポーネントはローカルに登録することもできる
+            components:{
+                //※-はプロパティ名に含めることができないので、ES6からプロパティ名を
+                //文字列に変換できる記法を使っている
+                'my-hello2': {
+                    template: '<div>こん</div>'
+                },
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Vue.js</title>
+</head>
+<body>
+    <div id="app">
+        <!--
+            要素のコンテントを<slot>で定義したタグの中に埋め込むことができます。
+            ※あくまでも親コンポーネント中のオブジェクトしかアクセスすることはできない。
+        -->
+        <my-hello>安藤</my-hello>
+        <!--
+            複数のスロットをv-slot:構文で埋め込むことが可能
+        -->
+        <my-slot>
+            <template v-slot:header>
+                <h3>ようこそVue.jsへ</h3>
+            </template>
+            <p>一緒に勉強しましょう。</p>
+            <!--#で諸略することができるi-->
+            <template #footer>
+                <span>WrittenBy Wingsプロジェkと</span>
+            </template>
+            <p>質問は掲示板へどうぞ</p>
+        </my-slot>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <script>
+        Vue.component('my-hello',{
+            template:
+            //暫定値'ゲストを設定'
+            `<div>こんにちは、<slot>ゲスト</slot></div>`,
+        });
+
+        Vue.component('my-slot',{
+            template:
+            `<div>
+                <header>
+                    <slot name="header">DEFAULT HEADER</slot>
+                </header>
+                <div>
+                    <slot>DEFAULT MAIN</slot>
+                </div>
+                <footer>
+                    <slot name="footer">DeFAULT FOOOTER</slot>
+                </footer>
+            </div>`
+        });
+
+        new Vue({
+            el: '#app',
+        });
+    </script>
+</body>
+</html>

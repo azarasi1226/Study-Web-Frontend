@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8"/>
+    <title>Vue.js</title>
+</head>
+<body>
+    <div id="app">
+        <p>現在値：{{current}}</p>
+
+        <!--増減値の異なるボタンを配置-->
+        <my-counter step="1" v-on:plus="onplus"></my-counter>
+        <my-counter step="2" v-on:plus="onplus"></my-counter>
+        <my-counter step="3" v-on:plus="onplus"></my-counter>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <script>
+        Vue.component('my-counter',{
+            props: ['step'],
+            methods: {
+                onclick: function()
+                {
+                    //$emitで親要素に通知する
+                    this.$emit('plus', Number(this.step))
+                }
+            },
+            template: 
+                `<button type="button" v-on:click="onclick">{{step}}</button>`
+        })
+
+        new Vue({
+            el: '#app',
+            data: {
+                current: 0
+            },
+            methods: {
+                onplus: function(e){
+                    this.current += e;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
