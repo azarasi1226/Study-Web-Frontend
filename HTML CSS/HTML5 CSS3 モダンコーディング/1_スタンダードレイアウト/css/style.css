@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+/*全体設定---------------------------------------------------------------------*/
 html {
     font-size: 62.5%;
 }
@@ -24,7 +25,7 @@ a:link, a:visited, a:hover, a:active {
     display: none;
 }
 
-/*-----ヘッダー----------------------------------------------------------------*/
+/*-ヘッダー--------------------------------------------------------------------*/
 .header {
     width: 100%;
     padding: 28px 0 10px;
@@ -71,19 +72,25 @@ a:link, a:visited, a:hover, a:active {
     color: #fff;
 }
 
-/*-----ラッパー----------------------------------------------------------------*/
+/*-ラッパー--------------------------------------------------------------------*/
 .wrapper {
     width: 970px;
     margin: 30px auto 40px;
 }
+.heading {
+    padding: 10px 12px;
+    background: url("../images/bg-slash.gif");
+    letter-spacing: 1px;
+    font-size: 1.6rem;
+}
 
-/*-----メインコンテンツ---------------------------------------------------------*/
+/*--メインコンテンツ------------------------------------------------------------*/
 .main {
     float: left;
     width: 660px;
 }
 
-/*-----ホットトピック-----------------------------------------------------------*/
+/*---ホットトピック-----------------------------------------0-------------------*/
 .hot-topic {
     display: block;
     height: 300px;
@@ -133,13 +140,7 @@ a:link, a:visited, a:hover, a:active {
     line-height: 1;
 }
 
-/*-----更新履歴リスト-----------------------------------------------------------*/
-.heading {
-    padding: 10px 12px;
-    background: url("../images/bg-slash.gif");
-    letter-spacing: 1px;
-    font-size: 1.6rem;
-}
+/*---更新履歴リスト-------------------------------------------------------------*/
 .scroll-list {
     max-height: 220px;
     overflow-y: auto;
@@ -187,10 +188,10 @@ a:link, a:visited, a:hover, a:active {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
 }
 
-/*-----記事ブロック-------------------------------------------------------------*/
+/*---記事ブロック---------------------------------------------------------------*/
 .article-box {
     position: relative;
     display: block;
@@ -244,13 +245,13 @@ a:link, a:visited, a:hover, a:active {
     width: 100%;
 }
 
-/*-----サイドメニュー-----------------------------------------------------------*/
+/*--サイドメニュー--------------------------------------------------------------*/
 .sidemenu {
     float: right;
     width: 275px;
 }
 
-/*-----ランキング--------------------------------------------------------------*/
+/*---ランキング-----------------------------------------------------------------*/
 .ranking {
     margin-bottom: 30px;
     list-style-type: none;
@@ -304,8 +305,8 @@ a:link, a:visited, a:hover, a:active {
     background-color: #a0541a;
 }
 .ranking .order::before {
-    content: counter(ranking);
     counter-increment: ranking;
+    content: counter(ranking);
     display: inline-block;
     font-size: 1.0rem;
     -webkit-transform: rotate(-45deg);
@@ -321,14 +322,65 @@ a:link, a:visited, a:hover, a:active {
     line-height: 1.5;
 }
 
+/*---ドキュメント---------------------------------------------------------------*/
+.documents {
+    margin: 10px 10px 30px;
+}
+.documetns,
+.documents ul {
+    list-style-type: none;
+}
+.documents > li .title {
+    margin: 15px 0;
+    padding-left: 8px;
+    border-left: 5px solid #d03c56;
+    font-size: 1.4rem;
+    line-height: 1.2;
+}
+.documents > li + li {
+    margin-top: 25px;
+}
+.documents > li ul {
+    margin: 15px;
+}
+.documents > li ul > li {
+    margin-bottom: 15px;
+    padding-left: 10px;
+    background: url("../images/arrow.gif") no-repeat left center;
+}
+.documents a:hover {
+    text-decoration: underline;
+}
 
+/*---検索欄--------------------------------------------------------------------*/
+.search-box {
+    padding: 15px;
+    background-color: #ccc;
+    font-size: 0;
+}
+.search-box > * {
+    font-size:
+    1.2rem;
+}
+.search-box .search-input {
+    widows: 205px;
+    height: 26px;
+    padding: 0 10px;
+    border: none;
+}
+.search-box .search-button {
+    width: 40px;
+    height: 26px;
+    border: 26px;
+    background-color: #d03c56;
+    color: #fff;
+    cursor: pointer;
+}
+.search-box .text {
+    margin-top: 12px;
+}
 
-
-
-
-
-
-/*-----フッター--------------------------------------------------------------*/
+/*-フッター--------------------------------------------------------------------*/
 .footer {
     width: 100%;
     padding: 20px 0 30px;
