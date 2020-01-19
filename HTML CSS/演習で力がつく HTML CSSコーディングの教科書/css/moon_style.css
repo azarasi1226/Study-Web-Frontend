@@ -48,8 +48,9 @@ nav {
 .container h2 {
   font-size: 1.9rem;
   font-family: sans-serif;
+  width: 90%;
   padding: 6px 14px;
-  margin: 20px 0px;
+  margin: 20px auto 10px;
   background-color: #223399;
   border-radius: 10px;
   box-shadow: 3px 3px 3px 1px gray;

@@ -1,0 +1,34 @@
+.planet {
+    border-collapse: collapse;
+    font-family: sans-serif;
+}
+.planet th,
+.planet td{
+    padding: 0.3rem 0.7rem;
+    border: 1px solid darkgoldenrod;
+}
+.planet th {
+    color: white;
+    text-align: center;
+    background-color: saddlebrown;
+}
+.planet thead th:first-child {
+    background-color: maroon;
+}
+.planet tbody tr:nth-of-type(odd) {
+    background-color: ivory;
+}
+.planet tbody tr:nth-of-type(even) {
+    background-color: cornsilk;
+}
+.planet td:nth-of-type(1){
+    text-align: left;
+}
+.planet td:nth-of-type(2),
+.planet td:nth-of-type(3)
+{
+    text-align: center;
+}
+.planet tfoot tr{
+    background-color: wheat;
+}
