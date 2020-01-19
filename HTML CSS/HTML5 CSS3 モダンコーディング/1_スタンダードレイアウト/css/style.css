@@ -261,6 +261,9 @@ a:link, a:visited, a:hover, a:active {
     margin-top: 15px;
 }
 .ranking .ranking-item a {
+    /*self:親要素のポジションを相対に指定*/
+    position: relative;
+
     display: block;
     font-size: 0;
     transition: opacity 0.15s;
@@ -273,19 +276,25 @@ a:link, a:visited, a:hover, a:active {
     height: 55px;
 }
 .ranking .order {
+    /*self:絶対位置でバッチぽく指定*/
+    position: absolute;
+    top: -8px;
+    left: 35px;
+
     display: inline-block;
     width: 18px;
     height: 18px;
     margin: 0 10px;
     border: 1px solid #ccc;
+    /*形を円にする＆背景色*/
+    border-radius: 50%;
+    background-color: white;
+
     color: #aaa;
     vertical-align: 20px;
     text-align: center;
     font-weight: bold;
     line-height: 16px;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
 }
 .ranking .ranking-item:nth-of-type(1) .order,
 .ranking .ranking-item:nth-of-type(2) .order,
@@ -309,9 +318,6 @@ a:link, a:visited, a:hover, a:active {
     content: counter(ranking);
     display: inline-block;
     font-size: 1.0rem;
-    -webkit-transform: rotate(-45deg);
-    -ms-transform: rotate(-45deg);
-    transform: rotate(-45deg);
 }
 .ranking .text {
     display: inline-block;
