@@ -18,7 +18,7 @@ a:link, a:visited, a:hover, a:active {
   text-decoration: none;
 }
 
-
+/*アイテム---------------------------------------------------------------------*/
 .item {
   width: 180px;
   margin-bottom: 4px;
@@ -45,7 +45,7 @@ a:link, a:visited, a:hover, a:active {
   margin-right: 5px;
   border: 2px solid;
   border-radius: 50%;
-  vertical-align: -5px;
+  vertical-align: middle;
 }
 .item .description {
   margin: 10px;
@@ -53,6 +53,7 @@ a:link, a:visited, a:hover, a:active {
 }
 .item > a {
   display: block;
+  /*memo:padding8 border-bottom3なので-11*/
   margin: -8px -8px -11px;
   padding: 8px 8px 11px;
   border-radius: inherit;
@@ -78,4 +79,54 @@ a:link, a:visited, a:hover, a:active {
 .item-breaktime,
 .item-breaktime .category::before {
   border-color: #C1EFFF;
+}
+/*memo:.itemで指定したwidthを上書きするために最後に記述*/
+.item-m {
+  width: 364px;
+}
+.item-l {
+  width: 732px;
+}
+
+/*ヘッダー---------------------------------------------------------------------*/
+.header {
+  /*memo: ヘッダーも.itemクラスを付与しているのでwidthなどは設定しない*/
+  padding: 25px 0;
+  border-bottom: none;
+  text-align: center;
+}
+.logo {
+  width: 136px;
+  height: 136px;
+  transition: transform 0.3s;
+}
+.logo:hover {
+  /*memo: 360回転させてもtransform時間上で指定しないと動かないように見えるぞ！*/
+  transform: rotate(360deg);
+}
+.nav {
+  margin: 35px auto 10px;
+}
+.nav-item {
+  margin-top: 20px;
+}
+.nav-item a {
+  display: inline-block;
+  letter-spacing: 1px;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+.nav-item a::after {
+  content: "";
+  display: block;
+  width: 0;
+  /*memo: リンクと線をいい感じに離すためにtopに6pxマージン
+  しかも左右のマージンをautoで常に中央寄せにすると、真ん中から線が描画される感じに
+  なる...よく出来てると思う。*/
+  margin: 6px auto 0;
+  border-bottom: 1px solid #7C5119;
+  transition: width 0.3s ease-in-out;
+}
+.nav-item a:hover::after{
+  width: 100%;
 }
