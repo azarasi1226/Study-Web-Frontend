@@ -1,0 +1,35 @@
+.container {
+    min-width: 826px;
+    min-height: 300px;
+    display: flex;
+}
+.container > main,
+.container > nav, 
+.container > aside{
+    margin: 4px;
+    padding: 8px;
+    border: 1px solid #777;
+    border-radius: 8px;
+    font-size: 1.5rem;
+}
+.container > main {
+    background-color: orange;
+    flex: 1 1 300px;
+    order: 2;
+}
+.container > nav {
+    background-color: lightblue;
+    flex: 0 0 150px;
+    order: 1;
+}
+.container > aside {
+    background-color: lightpink;
+    flex: 0 0 200px;
+    order: 3;
+}
+
+header, footer {
+    background-color: lightgreen;
+    min-width: 800px;
+    min-height: 60px;
+}
