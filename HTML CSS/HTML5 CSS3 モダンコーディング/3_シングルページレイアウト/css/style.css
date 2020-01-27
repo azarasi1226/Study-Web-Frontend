@@ -17,10 +17,39 @@ body {
   font-size: 1.4rem;
   font-family: "Raleway" "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
 }
+/*見出し*/
+.heading {
+  position: relative;
+  display: inline-block;
+  margin: 30px 0 15px;
+  padding-bottom:15px;
+  letter-spacing: 2px;
+  font-size: 4rem;
+}
+/*ボーダーの２重線で実装する方法が簡単だけど、
+ブラウザごとによって表示が変わっちゃうんだって　...*/
+.heading::before,
+.heading::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-bottom: 1px solid #999;
+}
+.heading::before {
+  bottom: 5px;
+}
 
 /*ヘッダー---------------------------------------------------------------------*/
 .header {
   padding: 170px 30px 80px;
+}
+/*-タイトル--------------------------------------------------------------------*/
+.site-title-sub {
+  margin: 0 0 30px;
+  letter-spacing: 1px;
+  font-size: 2.2rem;
 }
 .site-title-sub::before,
 .site-title-sub::after {
@@ -41,6 +70,7 @@ body {
   color: #888;
   font-size: 1.6rem;
 }
+/*-ボタン----------------------------------------------------------------------*/
 .button {
   display: inline-block;
   width: 200px;
@@ -57,6 +87,21 @@ body {
 }
 .button-showy {
   background-color: #f1b400;
+}
+.buttons .button {
+  margin: 10px;
+}
+
+/*ABOUT ME---------------------------------------------------------------------*/
+.about {
+  padding: 80px 30px;
+  background-color: #fff;
+  color: #333;
+}
+/*memo: inlineブロックではマージンの相殺が発生しないので45px分幅が確保される*/
+.about-text {
+  margin: 30px 0;
+  line-height: 2.5;
 }
 
 
