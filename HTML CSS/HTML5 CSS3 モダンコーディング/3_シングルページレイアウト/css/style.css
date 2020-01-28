@@ -6,10 +6,9 @@ html {
 *, *::before, *::after {
   box-sizing: border-box;
 }
-
-
-/**/
 body {
+  /*memo:fixedを指定するとスクロールで動かなくなる
+  　そしてleftとbottomで描画位置を固定*/
   background: #151515 url("../images/bg.png") no-repeat fixed left bottom;
   background-size: cover;
   color: #fff;
@@ -17,17 +16,21 @@ body {
   font-size: 1.4rem;
   font-family: "Raleway" "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
 }
-/*見出し*/
+
+/*h2見出し用*/
 .heading {
   position: relative;
   display: inline-block;
   margin: 30px 0 15px;
+  /*memo:padding-bottomを設定しているのは、
+    position: absolute時にどこまで内容を表示するか決めるため。
+    ちなみにmarginとborderは含まれない。よく覚えておけ！！*/
   padding-bottom:15px;
   letter-spacing: 2px;
   font-size: 4rem;
 }
-/*ボーダーの２重線で実装する方法が簡単だけど、
-ブラウザごとによって表示が変わっちゃうんだって　...*/
+/*memo:ボーダーの２重線で実装する方法が簡単だけど、
+  ブラウザによって表示が変わっちゃうんだって　...*/
 .heading::before,
 .heading::after {
   content: '';
@@ -104,15 +107,17 @@ body {
   line-height: 2.5;
 }
 
-
-/*WORKS*/
+/*WORKS------------------------------------------------------------------------*/
 .works {
   background-color: #383634;
   padding: 80px 0;
 }
 .works-wrapper {
   display: table;
+  widows: 100%;
   margin-top: 60px;
+  /*memo:fixedを指定するとtable-cellの横幅が内容コンテンツによらず、均等に割当
+    られるので、便利よ。*/
   table-layout: fixed;
 }
 .work-box {
