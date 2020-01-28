@@ -98,10 +98,32 @@ body {
   background-color: #fff;
   color: #333;
 }
-/*memo: inlineブロックではマージンの相殺が発生しないので45px分幅が確保される*/
+/*memo: inlineブロックでは上下マージンの相殺が発生しないので45px分幅が確保される*/
 .about-text {
   margin: 30px 0;
   line-height: 2.5;
 }
+
+
+/*WORKS*/
+.works {
+  background-color: #383634;
+  padding: 80px 0;
+}
+.works-wrapper {
+  display: table;
+  margin-top: 60px;
+  table-layout: fixed;
+}
+.work-box {
+  display: table-cell;
+}
+.work-image {
+  display: block;
+  width: 100%;
+}
+
+
+
 
 
