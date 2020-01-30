@@ -119,7 +119,7 @@ body {
   /*memo:fixedを指定するとtable-cellの横幅が内容コンテンツによらず、均等に割当
     られるので便利よ。今回はほぼ同じ大きさの画像使ってるからあんまり意味ないけど*/
   table-layout: fixed;
-""}
+}
 .work-box {
   position: relative;
   display: table-cell;
@@ -191,4 +191,22 @@ body {
 .button-ghost {
   border: 1px solid #fff;
   background-color: rgba(255, 255, 255, 0.15);
+}
+
+/*SKILS------------------------------------------------------------------------*/
+.skills {
+  padding: 80px 0;
+  background-color: #fff;
+  color: #333;
+}
+.skills-wrapper {
+  display: table;
+  width: 80%;
+  /*memo: ２回めだけど、上のh2要素のdisplayがinline-blockなので、
+  上下マージンの相殺が怒らず、65px分の間隔が確保される*/
+  margin: 50px auto 0;
+  table-layout: fixed;
+}
+.skill-box{
+  display: table-cell;
 }
