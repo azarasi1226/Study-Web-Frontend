@@ -117,18 +117,78 @@ body {
   widows: 100%;
   margin-top: 60px;
   /*memo:fixedを指定するとtable-cellの横幅が内容コンテンツによらず、均等に割当
-    られるので、便利よ。*/
+    られるので便利よ。今回はほぼ同じ大きさの画像使ってるからあんまり意味ないけど*/
   table-layout: fixed;
-}
+""}
 .work-box {
+  position: relative;
   display: table-cell;
 }
-.work-image {
-  display: block;
+.work-box::after {
+  content: "";
+  /*meom: after疑似要素はinlineブロックだけど、position: absoluteを指定すると
+  自動的にblockに変更されるので、高さと幅を調整することができる。*/
+  position: absolute;
+  top: 50%;
+  left: 0;
   width: 100%;
+  height: 50%;
+  background: no-repeat;
+  background-size: 100% 100%;
+  opacity: 0.2;
+  transform: scaleY(-1);
 }
-
-
-
-
-
+.work-box.tree::after {
+  background-image: url("../images/tree.jpg");
+}
+.work-box.building::after {
+  background-image: url("../images/building.jpg");
+}
+.work-box.lake::after {
+  background-image: url("../images/lake.jpg");
+}
+.work-box.sky::after{
+  background-image: url("../images/sky.jpg");
+}
+.work-box:nth-child(odd) .work-image {
+  margin: 60% 0 0;
+}
+.work-box:nth-child(odd) .work-description,
+.work-box:nth-child(odd)::after {
+  top: 0;
+}
+.work-image {
+  display:block;
+  width: 100%;
+  margin: 0 0 60%;
+}
+.work-description {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 50%;
+  overflow-y: auto;
+}
+.work-description-inner {
+  display: table;
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+}
+.work-text {
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 1.2rem;
+  line-height: 2;
+}
+.work-text .button {
+  width: 60%;
+  margin-top: 20px;
+  padding: 3px;
+}
+.button-ghost {
+  border: 1px solid #fff;
+  background-color: rgba(255, 255, 255, 0.15);
+}
