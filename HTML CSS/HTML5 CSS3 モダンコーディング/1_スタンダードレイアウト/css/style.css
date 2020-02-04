@@ -42,6 +42,7 @@ a:link, a:visited, a:hover, a:active {
     display: block;
     width: 100%;
     height: 100%;
+    /*memo: 文字を消し去りたい三点セット*/
     overflow: hidden;
     text-indent: 100%;
     white-space: nowrap;
@@ -126,10 +127,12 @@ a:link, a:visited, a:hover, a:active {
     font-size: 1.1rem;
 }
 .hot-topic .date {
+    /*memo:absoluteで指定すると親要素の
+    パディングすらも無視する。*/
     position: absolute;
     top: 60px;
     left: 0;
-    width: 140opx;
+    width: 140px;
     padding: 4px;
     background-color: #fff;
     color: #2d3d54;
@@ -151,6 +154,7 @@ a:link, a:visited, a:hover, a:active {
     display: block;
     padding: 10px 15px;
     color: #333;
+    /*inline-blockでタグ間の改行で空白スペースが開かないように*/
     font-size: 0;
     transition: background-color 0.1s;
 }
@@ -185,6 +189,7 @@ a:link, a:visited, a:hover, a:active {
     display: inline-block;
     width: 73%;
     padding-left: 15px;
+    /*memo:テキストの見切れを...と表示させたい場合の３点セット*/
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -274,6 +279,7 @@ a:link, a:visited, a:hover, a:active {
 .ranking .image {
     width: 55px;
     height: 55px;
+    margin-right: 10px;
 }
 .ranking .order {
     /*self:絶対位置でバッチぽく指定*/
@@ -282,8 +288,8 @@ a:link, a:visited, a:hover, a:active {
     left: 35px;
 
     display: inline-block;
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
     margin: 0 10px;
     border: 1px solid #ccc;
     /*形を円にする＆背景色*/
@@ -291,8 +297,9 @@ a:link, a:visited, a:hover, a:active {
     background-color: white;
 
     color: #aaa;
-    vertical-align: 20px;
+    vertical-align: 1px;
     text-align: center;
+    font-size: 1.3rem;
     font-weight: bold;
     line-height: 16px;
 }
@@ -317,7 +324,8 @@ a:link, a:visited, a:hover, a:active {
     counter-increment: ranking;
     content: counter(ranking);
     display: inline-block;
-    font-size: 1.0rem;
+    font-size: 1.2rem;
+    line-height: 1.7;
 }
 .ranking .text {
     display: inline-block;
@@ -325,7 +333,7 @@ a:link, a:visited, a:hover, a:active {
     color: #000;
     vertical-align: top;
     font-size: 1.2rem;
-    line-height: 1.5;
+    line-height: 1.2rem;
 }
 
 /*---ドキュメント---------------------------------------------------------------*/
@@ -343,6 +351,7 @@ a:link, a:visited, a:hover, a:active {
     font-size: 1.4rem;
     line-height: 1.2;
 }
+/*memo:２個め以降からマージンを適応させる*/
 .documents > li + li {
     margin-top: 25px;
 }
