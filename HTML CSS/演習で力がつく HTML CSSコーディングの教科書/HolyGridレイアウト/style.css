@@ -1,6 +1,6 @@
 .container {
     min-width: 826px;
-    min-height: 300px;
+    min-height:60vh;
     display: flex;
 }
 .container > main,

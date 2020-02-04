@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <title>Vue.js で Google Books API から書籍情報を表示するサンプルコード</title>
+  <meta charset="utf-8">
+  <style>
+    *[v-cloak] {
+        opacity: 0;
+    }
+</style>
+</head>
+<body>
+  <ul id="example-1">
+    <li v-cloak>書籍名：{{ items[0].volumeInfo.title }}</li>
+    <li v-cloak>著者：{{ items[0].volumeInfo.authors[0] }}</li>
+    <li v-cloak>概要：{{ items[0].volumeInfo.description }}</li>
+  </ul>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.js"></script>
+  <script>
+  "use strict";
+
+   fetch('https://www.googleapis.com/books/v1/volumes?q=isbn:9784103060765')
+        .then(response =>  {
+            if(response.ok){
+                return response.json();
+            }
+        })
+        .then( res => {
+            const example1 = new Vue({
+                el: '#example-1',
+                data: res
+            });
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+  </script>
+</body>
+</html>
