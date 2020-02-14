@@ -1,0 +1,110 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+html {
+    font-size: 62.5%;
+}
+body {
+    font-size: 1.2rem;
+    background-color:#F6F6F6;
+    border-top: solid 8px #6CC6C4;
+    color: #515151;
+    font-family: Verdana, Arial, Helvetica, meirio, メイリオ, "Hiragino Maru Gothic Pro", "ヒラギノ丸ゴ Pro W4", Osaka, "ＭＳ Ｐゴシック", sans-serif;
+}
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+body > .wrapper {
+    width: 920px;
+    margin: 0 auto;
+}
+
+/*ヘッダー*/
+.header-wrapper {
+    margin-bottom: 10px; 
+}
+.logo {
+    float: left;
+    background: url(../images/siteTitle.png) no-repeat;
+    margin-top: 20px;
+}
+.logo a {
+    display: block;
+    width: 260px;
+    height: 42px;
+    opacity: 0;
+}
+.header .address {
+    float: right;
+    padding: 10px 0px 0px;
+}
+.header .address .desc {
+    font-size: 1.0rem;
+    margin-bottom: 15px;
+}
+.header .address .tell {
+    font-size: 2.7rem;
+    margin-bottom: 10px;
+}
+.header .address .tell .fa-phone {
+    vertical-align: top;
+    color: gray;
+    font-size: 2.5rem;
+}
+.header .address .reception-time {
+    font-size: 1.0rem;
+    padding: 5px;
+    border: solid black 1px;
+}
+.header .address .reception-time .holiday {
+    color: red;
+}
+.global-nav{
+    text-align: center;
+}
+.global-nav .nav-item {
+    display: inline-block;
+    /*memo:border-radius時にはみ出した項目を削除する*/
+    overflow: hidden;
+}
+.global-nav .nav-item:first-child {
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}
+.global-nav .nav-item:last-child {
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+.global-nav .nav-item a {
+    display: block;
+    width: 160px;
+    padding: 17px 0px 18px;
+    background: linear-gradient(rgb(156, 277, 225), rgb(108,198, 196));
+    color:white;
+    text-decoration: none;
+}
+.global-nav .nav-item a:hover{
+    background: linear-gradient(rgb(108,198, 196), rgb(156, 277, 225));
+}
+
+/*メイン*/
+.sidemenu {
+    float:left;
+    width: 260px;
+}
+.main {
+    float: right;
+}
+.sidemenu-title{
+    color: white;
+    height: 40px;
+    background:linear-gradient(rgb(156, 277, 225), rgb(108,198, 196));
+    border: 1px solid #6CC6C4;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 1.8rem;
+}

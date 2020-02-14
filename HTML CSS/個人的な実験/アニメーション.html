@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>アニメーション</title>
+		<style>
+			@keyframes feadeOut{
+				0% {
+					width: 100px;
+					Opacity: 1;
+				}
+  			100% {
+					width: 100%;
+					Opacity: 0;
+				}
+			}
+			@keyframes feadIn {
+
+			}
+			.A, .B, .C {
+				margin: 10px;
+				width: 100px;
+  				height: 100px;
+				background: #00BCD4;
+
+				animation-name: feadeOut;
+				/*アニメーション一回分の時間*/
+				animation-duration: 1s;
+				/*アニメーションが開始するまでの時間*/
+				animation-delay: 1s;
+				/*アニメーションの向き*/
+				animation-direction: alternate;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="A"></div>
+		<div class="B"></div>
+		<div class="C"></div>
+		<div class="D"></div>
+	</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>マルチカラムレイアウト</title>
+		<style>
+            #B.B {
+                color:green;
+            }
+
+            span {
+                color: orange;
+            }
+		</style>
+	</head>
+	<body>
+		<div class="wrapper">
+			<h1 class="title">タイトル</h1>
+            <p class="A">サンプルテキスト１</p>
+        <p id="B" class="B" style="color: red;">サンプルテキスト２
+            <!--CSSの詳細度は最初に、インライン、外部・内部みたいな感じで計算され、
+            その中で更に、外部・内部の中でID、クラスみたいな感じで計算される-->
+            <span>aaa</span>
+        </p>
+		</div>
+	</body>
+</html>
