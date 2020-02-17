@@ -84,9 +84,15 @@ body > .wrapper {
     background: linear-gradient(rgb(156, 277, 225), rgb(108,198, 196));
     color:white;
     text-decoration: none;
+    /*memo:グラデーションがかかってると、transitionとかanimationとか指定できない。*/
 }
-.global-nav .nav-item a:hover{
+.global-nav .nav-item a:hover,
+.global-nav .nav-item.active a{
     background: linear-gradient(rgb(108,198, 196), rgb(156, 277, 225));
+}
+
+.bread-crumbs {
+    margin-top: 15px;
 }
 
 /*メイン*/
@@ -96,8 +102,9 @@ body > .wrapper {
 }
 .main {
     float: right;
+    width: 640px;
 }
-.sidemenu-title{
+.sidemenu-title {
     color: white;
     height: 40px;
     background:linear-gradient(rgb(156, 277, 225), rgb(108,198, 196));
@@ -107,4 +114,41 @@ body > .wrapper {
     text-align: center;
     line-height: 40px;
     font-size: 1.8rem;
+    margin-top: 20px;
+}
+
+.main-title {
+    color: white;
+    height: 80px;
+    padding-left: 30px;
+    background:linear-gradient(rgb(156, 277, 225), rgb(108,198, 196));
+    border: 1px solid #6CC6C4;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    line-height: 80px;
+    font-size: 2.5rem;
+    margin-top: 20px;
+}
+
+.general-dentistry {
+    font-size: 1.4rem;
+    font-weight: bold;
+    padding: 15px 15px 30px;
+    background-color: white;
+    border: 1px solid #4d82c4;
+}
+.general-dentistry .nav-item {
+    padding: 13px 8px;
+    border-bottom: black solid 1px;
+}
+.general-dentistry .nav-item::before {
+    content: "◆";
+    margin: 0 5px;
+    color: #4d82c4;
+}
+.general-dentistry .nav-item a:visited {
+    color: black;
+}
+.general-dentistry .nav-item a:hover {
+    color: #4d82c4;
 }
