@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+		<meta charset="UTF-8">
+		<title>cssカウンタ</title>
+		<style>
+			html {
+				counter-reset: title;
+			}
+			h3::before{
+				content: counter(title);
+				counter-increment: title;
+			}
+		</style>
+	</head>
+	<body>
+		<h3>田中</h3>
+		<h3>安藤</h3>
+		<h3>愛川</h3>
+		<h3>田添</h3>
+		<h3>高橋</h3>
+	</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+		<meta charset="UTF-8">
+		<title>フレックスレイアウト</title>
+		<style>
+			.container1 {
+				height: 300px;
+				background-color: wheat;
+				display: flex;
+				/*向き*/
+				flex-direction: row;
+				/*右揃え、中央、左*/
+				justify-content: center;
+				/*上、中央、下*/
+				align-items: flex-end;
+
+			}
+			.a, .b, .c {
+				height: 100px;
+				width: 100px;
+			}
+			.a {
+				background-color: red;
+				height: 300px;
+			}
+			.b {
+				background-color: blue;
+				height: 150px;
+			}
+			.c {
+				background-color: yellow;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container1">
+			<div class="a">
+
+			</div>
+			<div class="b">
+
+			</div>
+			<div class="c">
+
+			</div>
+		</div>
+	</body>
+</html>

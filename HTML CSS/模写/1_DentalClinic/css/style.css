@@ -28,7 +28,7 @@ body > .wrapper {
 .logo {
     float: left;
     background: url(../images/siteTitle.png) no-repeat;
-    margin-top: 20px;
+    margin-top: 40px;
 }
 .logo a {
     display: block;
@@ -38,25 +38,28 @@ body > .wrapper {
 }
 .header .address {
     float: right;
-    padding: 10px 0px 0px;
+    padding: 18px 0px 0px;
+    text-align: right;
 }
 .header .address .desc {
-    font-size: 1.0rem;
+    font-size: 0.8rem;
     margin-bottom: 15px;
 }
 .header .address .tell {
-    font-size: 2.7rem;
+    font-size: 2.0rem;
     margin-bottom: 10px;
 }
 .header .address .tell .fa-phone {
     vertical-align: top;
     color: gray;
-    font-size: 2.5rem;
+    font-size: 1.5rem;
+    margin-right: 17px;
+    transform: rotate(100deg);
 }
 .header .address .reception-time {
-    font-size: 1.0rem;
-    padding: 5px;
-    border: solid black 1px;
+    font-size: 0.8rem;
+    padding: 10px;
+    border: solid gainsboro 1px;
 }
 .header .address .reception-time .holiday {
     color: red;
@@ -68,6 +71,8 @@ body > .wrapper {
     display: inline-block;
     /*memo:border-radius時にはみ出した項目を削除する*/
     overflow: hidden;
+    list-style: none;
+    margin: 0;
 }
 .global-nav .nav-item:first-child {
     border-top-left-radius: 8px;
@@ -79,8 +84,9 @@ body > .wrapper {
 }
 .global-nav .nav-item a {
     display: block;
-    width: 160px;
+    width: 182px;
     padding: 17px 0px 18px;
+    text-shadow: 1px 1px 2px #6CC6C4;
     background: linear-gradient(rgb(156, 277, 225), rgb(108,198, 196));
     color:white;
     text-decoration: none;
@@ -92,6 +98,7 @@ body > .wrapper {
 }
 
 .bread-crumbs {
+    font-size: 0.8rem;
     margin-top: 15px;
 }
 
@@ -105,37 +112,39 @@ body > .wrapper {
     width: 640px;
 }
 .sidemenu-title {
+    padding: 0 15px;
     color: white;
-    height: 40px;
-    background:linear-gradient(rgb(156, 277, 225), rgb(108,198, 196));
+    background-image: linear-gradient(rgb(156,227,225) 0%,rgb(108,198,196) 100%);
     border: 1px solid #6CC6C4;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    text-align: center;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    text-align: left;
     line-height: 40px;
-    font-size: 1.8rem;
+    height: 40px;
+    font-size: 1.3rem;
     margin-top: 20px;
 }
 
 .main-title {
+    padding: 0 15px;
     color: white;
     height: 80px;
     padding-left: 30px;
-    background:linear-gradient(rgb(156, 277, 225), rgb(108,198, 196));
+    background:linear-gradient(rgb(156,227,225) 0%,rgb(108,198,196) 100%);
     border: 1px solid #6CC6C4;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
     line-height: 80px;
-    font-size: 2.5rem;
+    font-size: 1.7rem;
     margin-top: 20px;
 }
 
 .general-dentistry {
-    font-size: 1.4rem;
-    font-weight: bold;
+    font-size: 1.1rem;
+    font-weight: 600;
     padding: 15px 15px 30px;
     background-color: white;
-    border: 1px solid #4d82c4;
+    border: 1px solid #6CC6C4;;
 }
 .general-dentistry .nav-item {
     padding: 13px 8px;
@@ -144,11 +153,12 @@ body > .wrapper {
 .general-dentistry .nav-item::before {
     content: "◆";
     margin: 0 5px;
-    color: #4d82c4;
+    color: #6CC6C4;
 }
-.general-dentistry .nav-item a:visited {
+.general-dentistry .nav-item a:visited
+.general-dentistry .nav-item a:active {
     color: black;
 }
 .general-dentistry .nav-item a:hover {
-    color: #4d82c4;
+    color: #6CC6C4;
 }
