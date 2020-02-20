@@ -66,6 +66,10 @@ body > .wrapper {
 }
 .global-nav{
     text-align: center;
+    /*memoフォントサイズ0にすると、inline-blockの間の改行まで空白行として、
+    スペースを開けてしまうクソ仕様を回避できる！！！最高！
+    この糞仕様で３日ぐらい使った*/
+    font-size: 0px;
 }
 .global-nav .nav-item {
     display: inline-block;
@@ -95,6 +99,12 @@ body > .wrapper {
 .global-nav .nav-item a:hover,
 .global-nav .nav-item.active a{
     background: linear-gradient(rgb(108,198, 196), rgb(156, 277, 225));
+}
+.global-nav .nav-item .top-text {
+    font-size: 1.3rem;
+}
+.global-nav .nav-item .bottom-text {
+    font-size: 0.8rem;
 }
 
 .bread-crumbs {
