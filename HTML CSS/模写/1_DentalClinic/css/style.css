@@ -6,6 +6,7 @@ html {
 }
 body {
     font-size: 1.2rem;
+    line-height: 1.5;
     background-color:#F6F6F6;
     border-top: solid 8px #6CC6C4;
     color: #515151;
@@ -68,7 +69,7 @@ body > .wrapper {
     text-align: center;
     /*memoフォントサイズ0にすると、inline-blockの間の改行まで空白行として、
     スペースを開けてしまうクソ仕様を回避できる！！！最高！
-    この糞仕様で３日ぐらい使った*/
+    この糞仕様で３日ぐらい悩んだ*/
     font-size: 0px;
 }
 .global-nav .nav-item {
@@ -94,17 +95,18 @@ body > .wrapper {
     background: linear-gradient(rgb(156, 277, 225), rgb(108,198, 196));
     color:white;
     text-decoration: none;
-    /*memo:グラデーションがかかってると、transitionとかanimationとか指定できない。*/
+    /*memo:グラデーションがかかってると、transitionとかanimationとか指定できない。
+    したかったけどね....*/
 }
 .global-nav .nav-item a:hover,
 .global-nav .nav-item.active a{
     background: linear-gradient(rgb(108,198, 196), rgb(156, 277, 225));
 }
 .global-nav .nav-item .top-text {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
 }
 .global-nav .nav-item .bottom-text {
-    font-size: 0.8rem;
+    font-size: 1rem;
 }
 
 .bread-crumbs {
@@ -165,10 +167,78 @@ body > .wrapper {
     margin: 0 5px;
     color: #6CC6C4;
 }
-.general-dentistry .nav-item a:visited
+.general-dentistry .nav-item a:visited,
 .general-dentistry .nav-item a:active {
     color: black;
 }
 .general-dentistry .nav-item a:hover {
     color: #6CC6C4;
+}
+
+.main .content {
+    background-color: white;
+    padding: 20px;
+}
+.main .content h3 {
+    border-bottom: solid #6CC6C4 3px;
+    padding: 13px 0;
+    font-size: 1.6rem;
+}
+.main .strong {
+    display: block;
+    margin-top: 30px;
+    color:  #6CC6C4 ;
+    font-size: 1.5rem;
+}
+.main .content p {
+    margin-top: 10px;
+}
+/*診察表*/
+.consultation-table {
+    margin-top: 20px;
+    width: 100%;
+}
+.consultation-table th,
+.consultation-table td{
+    border: solid gray 1px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+.consultation-table th {
+    background-color: #D1D1D1;
+    font-size: 1.3rem;
+}
+
+/*フッター*/
+.footer nav {
+    margin-top: 20px;
+    background-color: #6CC6C4;
+    border-radius: 10px;
+    padding: 5px 20px;
+}
+.footer nav .nav-item {
+    display: inline-block;
+    font-size: 1.3rem;
+}
+.footer nav .nav-item + .nav-item {
+    margin-left: 30px;
+}
+.footer nav .nav-item::before {
+    content: "◯";
+    width: 20px;
+    height: 20px;
+    color: white;
+}
+.footer nav .nav-item a:visited,
+.footer nav .nav-item a:active {
+    color: white;
+}
+.footer .address {
+    height: 40px;
+    line-height: 40px;
+    text-align: right;
+}
+.footer .copywriter {
+    text-align: center;
 }
