@@ -2,20 +2,26 @@
 html {
   font-size: 62.5%;
 }
+.clearfix::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+*, *::before, *::after {
+	box-sizing: border-box;
+}
 body{
 	background: url(../images/pagebg.jpg) repeat-x;
 }
 .wrapper {
-	position: relative;
 	width: 1000px;
 	min-height: 1650px;
 	margin: 0 auto;
 }
+
 /*サイドバー-------------------------------------------------------------------*/
 .aside {
-	position: absolute;
-	top: 0;
-	left: 0;
+	float:left;
 	width: 260px;
 	height: 1650px;
 	padding: 30px;
@@ -24,12 +30,17 @@ body{
 .aside .side-item {
 	margin-top: 15px;
 }
-/*ヘッダー---------------------------------------------------------------------*/
+
+/*コンテント-------------------------------------------------------------------*/
+.content {
+	float: right;
+	width: 705px;
+}
+
+/*-ヘッダー--------------------------------------------------------------------*/
 .header {
 	height: 288px;
-}
-.header .global-nav{
-	margin-left: 280px;
+	margin-bottom: 40px;
 }
 .header .global-nav .nav-item {
 	display: inline-block;
@@ -39,3 +50,26 @@ body{
 	opacity: 0.7;
 }
 
+/*-メイン-----------------------------------------------------------------------*/
+.main .main-pic{
+	text-align: center;
+	margin-top: 10px;
+}
+.main .prayer-table {
+	width: 100%;
+	border: #cca653 solid 2px;
+	margin-top: 20px;
+	font-size: 14px;
+}
+.main .prayer-table th,
+.main .prayer-table td {
+	text-align: center;
+	vertical-align: middle;
+	border: #cca653 solid 1px;
+	padding-top: 15px;
+	padding-bottom:8px;
+}
+.main .prayer-table th {
+	background: #EDDAC9;
+	color: #E8320D;
+}
